@@ -1,0 +1,406 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+.container .wrapper {
+  width: 100%;
+  height: calc(100vh - 32px);
+}
+.wrapper header {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #202020;
+  padding: 0 4px;
+}
+
+header span {
+  font-family: Segoe UI Variable Static Small;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #ffffff;
+}
+
+header .images {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+}
+
+header .images img {
+  width: 12px;
+  color: #ffffff;
+  border-radius: 2px;
+}
+.wrapper-two-div {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background-image: url(https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.left-div {
+  width: 35%;
+  height: 100%;
+  background-color: #000000;
+}
+
+.left-header-div {
+  height: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0 20px;
+  padding: 10px 4px 0;
+  gap: 12px;
+  align-items: center;
+}
+
+.image-burger img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.left-header-div span {
+  width: 100%;
+  height: 20px;
+  font-family: "Segoe UI Variable Static Text";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  font-feature-settings: "fina" on, "init" on;
+  color: #ffffff;
+  border-radius: 2px;
+  padding: 0 4px;
+}
+.input-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.input-div span {
+  width: 100%;
+}
+.input-div span input {
+  width: 100%;
+  height: 30px;
+  padding: 0 4px;
+  background: rgba(255, 255, 255, 0.0605);
+  border-radius: 3px;
+  border: none;
+  transition: 0.3s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  outline: none;
+}
+.input-div span input:focus {
+  width: 100%;
+  border-bottom: 1px solid #ffffff;
+  color: #ffffff;
+}
+.input-div span img {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.div-component {
+  padding: 0 4px;
+  margin-top: 35px;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.image-info-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.parent-div-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+}
+.parent-div-description span:nth-child(1) {
+  color: #ffffff;
+}
+.parent-div-description span:nth-child(2) {
+  width: 121px;
+  height: 19px;
+
+  font-family: "Segoe UI Variable Static Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #888888;
+  flex: none;
+  order: 5;
+  flex-grow: 0;
+}
+.image-div-radius {
+  padding-top: 2.5px;
+}
+.image-div-radius img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.radiusGreen {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: green;
+  position: absolute;
+  left: 18%;
+  bottom: 4px;
+}
+
+.clock-info-div {
+  width: 52px;
+  height: 19px;
+  font-family: "Segoe UI Variable Static Small";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #838383;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.right-div {
+  width: 100%;
+  height: 100%;
+}
+.right-div .right-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 83px;
+  max-width: 100%;
+  background: rgba(58, 58, 58, 0.3);
+  border-radius: 7px 0px 0px 0px;
+  padding: 0 4rem 0 0.5rem;
+}
+.info-chat {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.chat-image-div {
+  width: 50px;
+  height: 50px;
+}
+.chat-image-div img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.chat-div-title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 8px;
+}
+.chat-div-title span:nth-child(1) {
+  height: 21px;
+  left: 60px;
+  right: 0px;
+  top: calc(50% - 21px / 2 - 10.5px);
+  font-family: "Segoe UI Variable Static Display";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  color: #3a3a3a;
+  border-radius: 2px;
+}
+.chat-div-title span:nth-child(2) {
+  height: 16px;
+  left: 61px;
+  right: 30px;
+  top: calc(50% - 16px / 2 + 10px);
+  font-family: "Segoe UI Variable Static Small";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #dcdada;
+  border-radius: 2px;
+}
+.wrapper-circle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.circle {
+  width: 40px;
+  height: 40px;
+  background-color: #4e4d4d;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.circle img {
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle-3 img {
+  width: 15%;
+}
+.div-wrapper-components {
+  display: flex;
+  flex-direction: column-reverse;
+  overflow: auto;
+  min-height: calc(90% - 10%);
+  max-height: calc(93% - 74.7px);
+}
+.for-reverse {
+  display: flex;
+  flex-direction: column;
+}
+
+.div-wrapper-components::-webkit-scrollbar {
+  border: 1px solid black;
+  width: 10px;
+  border-radius: 10px;
+  background: #202020;
+}
+.div-wrapper-components::-webkit-scrollbar-thumb {
+  width: 2px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5442);
+  border-radius: 9999px;
+}
+.wrapper-info-component {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 0 8px;
+  padding: 0 3rem;
+}
+
+.wrapper-info-component .person img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.person {
+  margin-right: 7px;
+}
+.wrapper-div-messages {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0px 0px 0px 10px;
+  gap: 8px;
+  max-width: 100%;
+  min-height: 39px;
+  max-height: auto;
+  background: rgba(110, 109, 109, 0.982);
+  border-radius: 4px 14px 14px 14px;
+}
+.wrapper-div-messages span:nth-child(1) {
+  /* max-width: 100%;
+  height: 19px; */
+  font-family: "Segoe UI Variable Static Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #ffffff;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.wrapper-div-messages span:nth-child(2) {
+  /* width: 10%;
+  height: 14px; */
+  font-family: "Segoe UI Variable Static Small";
+  font-style: normal;
+  font-weight: 350;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  color: #a1aab3;
+}
+.send-message-div {
+  background: rgba(255, 255, 255, 0.0512);
+  border-radius: 8px;
+  height: 50px;
+  max-width: 91%;
+  border-radius: 8px;
+  margin: 0 auto;
+  background: #4e4e4e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sendFileToMessage {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 15px;
+  gap: 22px;
+}
+.chooseFile {
+  height: 20.04033088684082px;
+  width: 20.011184692382812px;
+  border-radius: 0px;
+  cursor: pointer;
+}
+.sendMessage {
+  width: 100%;
+  height: 100%;
+  padding-left: 21px;
+  outline: none;
+  border: none;
+  font-family: "Segoe UI Variable Static Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  background: #4e4e4e;
+  color: #8a8a8a;
+  cursor: pointer;
+}
+.sendEmojiVoice {
+  display: flex;
+  align-items: center;
+  padding-right: 18px;
+  gap: 26px;
+}
+.sendEmojiVoice img:nth-child(1) {
+  cursor: pointer;
+}
+
+.sendEmojiVoice img:nth-child(2) {
+  cursor: pointer;
+}
