@@ -66,6 +66,7 @@ header .images img {
   padding: 10px 4px 0;
   gap: 12px;
   align-items: center;
+  position: relative;
 }
 
 .image-burger img {
@@ -126,7 +127,13 @@ header .images img {
   height: 50px;
   display: flex;
   align-items: center;
+  transition: 0.1s all;
   justify-content: space-between;
+  cursor: pointer;
+}
+.div-component:active {
+  background-color: #ffffff;
+  opacity: 0.7;
 }
 .image-info-div {
   display: flex;

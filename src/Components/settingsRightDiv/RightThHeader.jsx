@@ -15,7 +15,7 @@ const RightThHeader = () => {
             />
           </div>
           <div className="chat-div-title">
-            <span>Design Review Chat</span>
+            <span>Foundation J5</span>
             <span>5 members, 3 online</span>
           </div>
         </div>
