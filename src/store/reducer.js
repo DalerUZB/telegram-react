@@ -4,7 +4,7 @@ import { fetchDataMessages, login } from "./action";
 const state = {
   showChat: false,
   messages: [],
-  //   token: Boolean(localStorage.getItem('token'))
+  auth: Boolean(localStorage.getItem("token")),
 };
 
 export const appSlice = createSlice({
@@ -16,7 +16,7 @@ export const appSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchDataMessages.fulfilled, (state, action) => {});
+    builder.addCase(fetchDataMessages.fulfilled, (state, action) => { });
 
     builder.addCase(login.fulfilled, (state, action) => {
       // localStorage.setItem("token", action.payload.token);

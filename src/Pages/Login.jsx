@@ -1,14 +1,12 @@
 import styled from "styled-components";
 import Image from "react-random-image";
-import { Link } from "react-router-dom";
-
 import React, { useRef } from "react";
-import { login } from "../store/action";
-import { useDispatch } from "react-redux";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Login = () => {
-  const dispatch = useDispatch();
-
+  const navigate = useNavigate()
   const username = useRef();
   const password = useRef();
 
@@ -18,7 +16,12 @@ const Login = () => {
       username: username.current.value,
       password: password.current.value,
     };
-    dispatch(login(body));
+    axios.post('/login', body).then(({ data }) => {
+      localStorage.setItem('token', data.token)
+      localStorage.setItem('username', data.username)
+      navigate('/')
+    })
+
   };
   return (
     <Wrapper>
