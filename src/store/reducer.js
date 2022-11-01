@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchDataMessages, login } from "./action";
+import { toast } from "react-toastify";
+import {
+  fetchDataMessages,
+  fetchSendMessageAction,
+  fetchSignup,
+  login,
+} from "./action";
 
 const state = {
   showChat: false,
@@ -15,22 +21,48 @@ export const appSlice = createSlice({
       state.showChat = true;
     },
     logOutStorage: (state) => {
-      localStorage.removeItem('token')
-      localStorage.removeItem('username')
-      state.auth = false
-    }
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      state.auth = false;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchDataMessages.fulfilled, (state, action) => {
-      state.messages = action.payload
+      state.messages = action.payload;
     });
 
     builder.addCase(login.fulfilled, (state, action) => {
-      localStorage.setItem('token', action.payload.token)
-      localStorage.setItem('username', action.payload.username)
-      state.auth = true
-    })
-  }
+      if (
+        action.payload === "Foydalanuvchi topilmadi!" ||
+        action.payload === "Parol xato!" ||
+        action.payload === "Parol xato!" ||
+        localStorage.getItem("token") === undefined ||
+        localStorage.getItem("username") === undefined
+      ) {
+        console.log("xato");
+      } else {
+        localStorage.setItem("token", action.payload.token);
+        localStorage.setItem("username", action.payload.username);
+        state.auth = true;
+      }
+    });
+
+    builder.addCase(fetchSendMessageAction.fulfilled, (state, action) => {
+      console.log(action);
+    });
+    builder.addCase(fetchSignup.fulfilled, (state, action) => {
+      if (
+        action.payload === "Ushbu ism band!" ||
+        action.payload === "Parol mos kelmadi!" ||
+        action.payload ===
+          "Parol yoki login kelmadi! Payloadni tekshiring! Iltimos!"
+      ) {
+        toast.error(action.payload);
+      } else {
+        toast.success(action.payload);
+      }
+    });
+  },
 });
 
 export const { changingFunc, logOutStorage } = appSlice.actions;

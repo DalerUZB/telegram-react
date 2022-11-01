@@ -408,6 +408,7 @@ header .images img {
   align-items: center;
   padding-right: 18px;
   gap: 26px;
+
 }
 .sendEmojiVoice img:nth-child(1) {
   cursor: pointer;

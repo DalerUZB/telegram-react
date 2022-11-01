@@ -15,7 +15,7 @@ const ToThRight = () => {
           <RightThHeader />
           <div className="div-wrapper-components">
             <div className="for-reverse">
-              {messages.map((message) => <Messages key={message._id} {...message} />)}
+              {messages?.map((message) => <Messages key={message._id} {...message} />)}
             </div>
           </div>
           <SendMessage />

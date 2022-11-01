@@ -1,21 +1,59 @@
-import React from "react";
+import React, { useRef } from "react";
 import Image from "react-random-image";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import styled from "styled-components";
+import { fetchSignup } from "../store/action";
 
 const CreateLogin = () => {
+
+  const username = useRef();
+  const password = useRef();
+  const repeatPassword = useRef();
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const createLogin = (e) => {
+    e.preventDefault();
+    const body = {
+      username: username.current.value,
+      password: password.current.value,
+      confirmPassword: repeatPassword.current.value,
+    };
+
+    if (
+      body.username.length > 5 ||
+      body.password.length > 5 ||
+      body.confirmPassword.length > 5
+    ) {
+      dispatch(fetchSignup(body)).then((res) => {
+        if (res.payload === "Foydalanuvchi tuzildi!") {
+          navigate("/login");
+        }
+      });
+    } else {
+      toast.error("iltimos kataklarni 5 tadan kam toldirmang !");
+    }
+  };
+  
   return (
-    <Wrapper>
+    <Wrapper onSubmit={(e) => createLogin(e)}>
       <div className="login">
         <h1>Create login</h1>
         <FormDiv>
-          <input type="text" placeholder="username" />
-          <input type="password" placeholder="password" />
-          <input type="password" placeholder="confirmPassword" />
+          <input ref={username} type="text" placeholder="username" />
+          <input ref={password} type="password" placeholder="password" />
+          <input
+            ref={repeatPassword}
+            type="password"
+            placeholder="confirmPassword"
+          />
           <button>Отправитъ</button>
         </FormDiv>
-        <Link to="/">
-          <button>login</button>
+        <Link to="/login">
+          <span>login</span>
         </Link>
       </div>
       <Image width={1550} height={900} />

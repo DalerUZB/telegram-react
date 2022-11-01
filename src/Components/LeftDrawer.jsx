@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const LeftDrawer = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const imageBurgerFunc = () => {
     const Drawer = document.querySelector(".Drawer");
     Drawer.classList.add("block");
@@ -26,15 +26,15 @@ const LeftDrawer = () => {
     dispatch(fetchDataMessages());
   };
   const logOut = () => {
-    dispatch(logOutStorage())
-    navigate('/login')
-  }
+    dispatch(logOutStorage());
+    navigate("/login");
+  };
   return (
     <>
       <div className="left-div">
         <div className="left-header-div">
           <div className="image-burger" onClick={(e) => imageBurgerFunc(e)}>
-            <img src={ImageBurger} alt="image burger" />
+            <img src={ImageBurger} alt="imageburger" />
           </div>
           <div className="Drawer">
             <div className="drawerImg">
@@ -63,7 +63,7 @@ const LeftDrawer = () => {
               <img
                 className="image-person"
                 src="https://thumbs.dreamstime.com/b/picturesque-autumn-scenery-santa-maddalena-village-church-road-colorful-trees-meadows-foreground-mountain-peaks-159426189.jpg"
-                alt="image"
+                alt="photo"
               />
             </div>
             <span className="radiusGreen"></span>

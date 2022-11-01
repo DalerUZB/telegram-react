@@ -6,15 +6,12 @@ import TheTop from "../Components/TheTop";
 import ToThRight from "../Components/ToThRight";
 
 const Home = () => {
-  const store = useSelector((store) => store.reducer);
-  const { auth } = useSelector(store => store.reducer);
+  const { auth } = useSelector((store) => store.reducer);
   const navigate = useNavigate();
 
-
   useEffect(() => {
-    if (!auth) navigate("/login")
-  }, []);
-
+    if (!auth) navigate("/login");
+  });
   return (
     <>
       <div className="container">
