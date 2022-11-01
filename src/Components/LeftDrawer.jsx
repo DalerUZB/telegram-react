@@ -4,10 +4,13 @@ import ImageBurger from "../assets/burger/Shape.svg";
 import ChromeClose from "../assets/images/ChromeClose.svg";
 import "./Drawer.css";
 import { useDispatch } from "react-redux";
-import { changingFunc } from "../store/reducer";
+import { changingFunc, logOutStorage } from "../store/reducer";
 import { fetchDataMessages } from "../store/action";
+import { useNavigate } from "react-router-dom";
+
 const LeftDrawer = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const imageBurgerFunc = () => {
     const Drawer = document.querySelector(".Drawer");
     Drawer.classList.add("block");
@@ -20,9 +23,12 @@ const LeftDrawer = () => {
   };
   const showChatSeeFunc = () => {
     dispatch(changingFunc());
-    dispatch(fetchDataMessages("/messages", "get"));
+    dispatch(fetchDataMessages());
   };
-
+  const logOut = () => {
+    dispatch(logOutStorage())
+    navigate('/login')
+  }
   return (
     <>
       <div className="left-div">
@@ -40,7 +46,7 @@ const LeftDrawer = () => {
               />
             </div>
             <div className="logOutDiv">
-              <button>Log Out</button>
+              <button onClick={() => logOut()}>Log Out</button>
             </div>
           </div>
           <span>Chats</span>

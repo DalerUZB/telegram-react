@@ -1,6 +1,6 @@
 import React from "react";
 
-const Messages = () => {
+const Messages = ({ createdBy, createdDate, message }) => {
   return (
     <>
       <div className="wrapper-info-component">
@@ -9,12 +9,13 @@ const Messages = () => {
             src="https://cdn4.vectorstock.com/i/1000x1000/47/93/person-icon-iconic-design-vector-18314793.jpg"
             alt="person"
           />
+          <span className="personName">{createdBy}</span>
         </div>
         <div className="wrapper-div-messages">
           <span>
-            i love figma! There is sooooo many features and its ui so intuitive!
+            {message}
           </span>
-          <span>10:03 AM</span>
+          <span>{createdDate} AM</span>
         </div>
       </div>
     </>

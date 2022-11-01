@@ -312,6 +312,11 @@ header .images img {
   padding: 0 3rem;
 }
 
+.personName {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+}
 .wrapper-info-component .person img {
   width: 35px;
   height: 35px;

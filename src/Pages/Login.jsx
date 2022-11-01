@@ -3,25 +3,27 @@ import Image from "react-random-image";
 import React, { useRef } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../store/action";
 
 
 const Login = () => {
+  const { auth } = useSelector(store => store.reducer);
   const navigate = useNavigate()
   const username = useRef();
   const password = useRef();
-
+  const dispatch = useDispatch()
   const sendFormData = (e) => {
     e.preventDefault();
     const body = {
       username: username.current.value,
       password: password.current.value,
     };
-    axios.post('/login', body).then(({ data }) => {
-      localStorage.setItem('token', data.token)
-      localStorage.setItem('username', data.username)
-      navigate('/')
-    })
+    dispatch(login(body))
 
+    setTimeout(() => {
+      navigate('/')
+    }, 2000);
   };
   return (
     <Wrapper>

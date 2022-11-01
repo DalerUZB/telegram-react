@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import ChooseFile from "../../assets/footerSendMessage/Shape-2.svg";
 import SendMessageIcon from "../../assets/footerSendMessage/Shape-1.svg";
 import SendVoice from "../../assets/footerSendMessage/Shape.svg";
 
 const SendMessage = () => {
+  const sendMessage = useRef()
+  const sendMessageFunc = () => {
+    console.log('bosildi');
+  }
   return (
     <>
       <div className="send-message-div">
@@ -14,14 +18,15 @@ const SendMessage = () => {
             alt="footerSendMessage"
             className="chooseFile"
           />
-          <input
+          <input ref={sendMessage}
+
             className="sendMessage"
             type="text"
             placeholder="Write a message..."
           />
         </div>
         <div className="sendEmojiVoice">
-          <img src={SendMessageIcon} alt="SendMessage" />
+          <img src={SendMessageIcon} alt="SendMessage" onClick={() => sendMessageFunc()} />
           <img src={SendVoice} alt="SendMessage" />
         </div>
       </div>

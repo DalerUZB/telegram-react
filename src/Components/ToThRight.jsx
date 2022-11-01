@@ -6,14 +6,17 @@ import RightThHeader from "./settingsRightDiv/RightThHeader";
 import SendMessage from "./settingsRightDiv/SendMessage";
 
 const ToThRight = () => {
-  const { showChat } = useSelector((store) => store.reducer);
+  const { showChat, messages } = useSelector((store) => store.reducer);
+
   return (
     <>
       {showChat && (
         <div className="right-div">
           <RightThHeader />
           <div className="div-wrapper-components">
-            <div className="for-reverse">{<Messages />}</div>
+            <div className="for-reverse">
+              {messages.map((message) => <Messages key={message._id} {...message} />)}
+            </div>
           </div>
           <SendMessage />
         </div>
