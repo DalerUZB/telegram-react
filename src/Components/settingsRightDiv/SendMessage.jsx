@@ -21,6 +21,8 @@ const SendMessage = () => {
       message: sendMessage.current.value,
     };
     dispatch(fetchSendMessageAction(body));
+    sendMessage.current.value = ""
+    setValueLength(0)
   };
 
   return (

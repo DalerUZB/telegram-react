@@ -39,7 +39,7 @@ export const appSlice = createSlice({
         localStorage.getItem("token") === undefined ||
         localStorage.getItem("username") === undefined
       ) {
-        console.log("xato");
+        toast.error(action.payload)
       } else {
         localStorage.setItem("token", action.payload.token);
         localStorage.setItem("username", action.payload.username);
@@ -48,14 +48,14 @@ export const appSlice = createSlice({
     });
 
     builder.addCase(fetchSendMessageAction.fulfilled, (state, action) => {
-      console.log(action);
+      toast.success(action.payload.message)
     });
     builder.addCase(fetchSignup.fulfilled, (state, action) => {
       if (
         action.payload === "Ushbu ism band!" ||
         action.payload === "Parol mos kelmadi!" ||
         action.payload ===
-          "Parol yoki login kelmadi! Payloadni tekshiring! Iltimos!"
+        "Parol yoki login kelmadi! Payloadni tekshiring! Iltimos!"
       ) {
         toast.error(action.payload);
       } else {
