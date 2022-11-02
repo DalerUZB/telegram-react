@@ -7,7 +7,7 @@ import SendMessage from "./settingsRightDiv/SendMessage";
 
 const ToThRight = () => {
   const { showChat, messages } = useSelector((store) => store.reducer);
-
+  console.log(messages);
   return (
     <>
       {showChat && (
@@ -15,7 +15,9 @@ const ToThRight = () => {
           <RightThHeader />
           <div className="div-wrapper-components">
             <div className="for-reverse">
-              {messages?.map((message) => <Messages key={message._id} {...message} />)}
+              {messages?.map((message) => (
+                <Messages key={message._id} {...message} />
+              ))}
             </div>
           </div>
           <SendMessage />

@@ -9,15 +9,6 @@ export default class Api {
       Authorization: "Bearer " + localStorage.getItem("token"),
     },
   };
-  async fetchMessage() {
-    try {
-      const message = await axios.get("/messages", this.config);
-      return message.data;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   async fetchLogin(data) {
     try {
       const signin = await axios.post("/login", data);
@@ -26,20 +17,28 @@ export default class Api {
       console.log(err);
     }
   }
-  async fetchSendMessage(body) {
-    try {
-      const message = await axios.post("/messages", body, this.config);
-      return message.data;
-    } catch (error) {
-      console.log(error);
-    }
-  }
   async fetchSignup(body) {
     try {
       const signup = await axios.post("signup", body, this.config);
       return signup.data;
     } catch (error) {
       toast.error(error);
+    }
+  }
+  async fetchMessage() {
+    try {
+      const message = await axios.get("/messages", this.config);
+      return message.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async fetchSendMessage(body) {
+    try {
+      const message = await axios.post("/messages", body, this.config);
+      return message.data;
+    } catch (error) {
+      console.log(error);
     }
   }
 }

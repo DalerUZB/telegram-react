@@ -5,8 +5,9 @@ import ChromeClose from "../assets/images/ChromeClose.svg";
 import "./Drawer.css";
 import { useDispatch } from "react-redux";
 import { changingFunc, logOutStorage } from "../store/reducer";
-import { fetchDataMessages } from "../store/action";
+
 import { useNavigate } from "react-router-dom";
+import { fetchDataMessages } from "../store/action";
 
 const LeftDrawer = () => {
   const dispatch = useDispatch();

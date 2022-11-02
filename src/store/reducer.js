@@ -39,23 +39,23 @@ export const appSlice = createSlice({
         localStorage.getItem("token") === undefined ||
         localStorage.getItem("username") === undefined
       ) {
-        toast.error(action.payload)
+        toast.error(action.payload);
       } else {
+        state.auth = true;
         localStorage.setItem("token", action.payload.token);
         localStorage.setItem("username", action.payload.username);
-        state.auth = true;
       }
     });
 
     builder.addCase(fetchSendMessageAction.fulfilled, (state, action) => {
-      toast.success(action.payload.message)
+      toast.success(action.payload.message);
     });
     builder.addCase(fetchSignup.fulfilled, (state, action) => {
       if (
         action.payload === "Ushbu ism band!" ||
         action.payload === "Parol mos kelmadi!" ||
         action.payload ===
-        "Parol yoki login kelmadi! Payloadni tekshiring! Iltimos!"
+          "Parol yoki login kelmadi! Payloadni tekshiring! Iltimos!"
       ) {
         toast.error(action.payload);
       } else {

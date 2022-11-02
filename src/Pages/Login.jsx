@@ -9,28 +9,38 @@ import { ClassicSpinner } from "react-spinners-kit";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const username = useRef();
   const password = useRef();
-  const dispatch = useDispatch();
-  const { auth } = useSelector(store => store.reducer)
-  const [loader, setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
+
   const sendFormData = (e) => {
     e.preventDefault();
     const body = {
       username: username.current.value,
       password: password.current.value,
     };
-    if (body.username.length > 5 || body.password.length >= 5) {
-      dispatch(login(body));
-      setLoader(true)
-      setTimeout(() => {
-        setLoader(false)
-        navigate('/')
-      }, 2000);
-    } else {
-      toast.error('kataklar 5 tadan kam bolmasin!')
-    }
 
+    if (body.username.length > 5 || body.password.length >= 5) {
+      dispatch(login(body)).then((res) => {
+        if (res.payload === "Foydalanuvchi topilmadi!") {
+          setTimeout(() => {
+            username.current.value = "";
+            password.current.value = "";
+          }, 200);
+        }
+      });
+      setLoader(true);
+      setTimeout(() => {
+        setLoader(false);
+      }, 1000);
+    } else {
+      toast.error("kataklar 5 tadan kam bolmasin!");
+      setTimeout(() => {
+        username.current.value = "";
+        password.current.value = "";
+      }, 1000);
+    }
   };
 
   return (
@@ -40,9 +50,11 @@ const Login = () => {
         <FormDiv onSubmit={(e) => sendFormData(e)}>
           <input ref={username} type="text" placeholder="username" />
           <input ref={password} type="password" placeholder="password" />
-          <span>
-            {loader ? <ClassicSpinner size={30} color="#686769" loading={loader} /> : <button>Отправитъ</button>}
-          </span>
+          {loader ? (
+            <ClassicSpinner size={30} color="#686769" loading={loader} />
+          ) : (
+            <button>Отправитъ</button>
+          )}
         </FormDiv>
         <Link to="/create-login">
           <button>Create login</button>

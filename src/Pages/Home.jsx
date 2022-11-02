@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import LeftDrawer from "../Components/LeftDrawer";
 import TheTop from "../Components/TheTop";
@@ -12,6 +12,7 @@ const Home = () => {
   useEffect(() => {
     if (!auth) navigate("/login");
   });
+
   return (
     <>
       <div className="container">
