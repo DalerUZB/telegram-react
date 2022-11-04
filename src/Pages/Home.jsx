@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     if (!auth) navigate("/login");
-  });
+  }, []);
 
   return (
     <>

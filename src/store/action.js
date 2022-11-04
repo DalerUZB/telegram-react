@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "../api";
 
 export const fetchDataMessages = createAsyncThunk("messages/fetch", async () =>
-  api.fetchMessage()
+ await api.fetchMessage()
 );
 
 export const login = createAsyncThunk(
@@ -12,7 +12,7 @@ export const login = createAsyncThunk(
 
 export const fetchSendMessageAction = createAsyncThunk(
   "sendMessage/fetch",
-  async (body) => api.fetchSendMessage(body)
+  async (body) => await api.fetchSendMessage(body)
 );
 
 export const fetchSignup = createAsyncThunk(

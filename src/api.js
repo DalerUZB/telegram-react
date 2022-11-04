@@ -4,11 +4,7 @@ import { toast } from "react-toastify";
 axios.defaults.baseURL = "http://142.93.246.144";
 
 export default class Api {
-  config = {
-    headers: {
-      Authorization: "Bearer " + localStorage.getItem("token"),
-    },
-  };
+
   async fetchLogin(data) {
     try {
       const signin = await axios.post("/login", data);
@@ -27,7 +23,11 @@ export default class Api {
   }
   async fetchMessage() {
     try {
-      const message = await axios.get("/messages", this.config);
+      const message = await axios.get("/messages", {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      });
       return message.data;
     } catch (error) {
       console.log(error);
@@ -35,7 +35,11 @@ export default class Api {
   }
   async fetchSendMessage(body) {
     try {
-      const message = await axios.post("/messages", body, this.config);
+      const message = await axios.post("/messages", body, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      });
       return message.data;
     } catch (error) {
       console.log(error);

@@ -1,17 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "react-random-image";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { ClassicSpinner } from "react-spinners-kit";
 import { toast } from "react-toastify";
 import styled from "styled-components";
 import { fetchSignup } from "../store/action";
 
 const CreateLogin = () => {
-
+  const [loader, setLoader] = useState(false)
   const username = useRef();
   const password = useRef();
   const repeatPassword = useRef();
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -22,22 +22,28 @@ const CreateLogin = () => {
       password: password.current.value,
       confirmPassword: repeatPassword.current.value,
     };
-
+    setLoader(true)
     if (
-      body.username.length > 5 ||
-      body.password.length > 5 ||
-      body.confirmPassword.length > 5
+      body.username.length >= 5 &&
+      body.password.length >= 5 &&
+      body.confirmPassword.length >= 5
     ) {
       dispatch(fetchSignup(body)).then((res) => {
-        if (res.payload === "Foydalanuvchi tuzildi!") {
+        if (res.payload !== "Foydalanuvchi tuzildi!") {
+          toast.error(res.payload)
+        } else {
           navigate("/login");
+          toast.success(res.payload)
         }
-      });
+      })
     } else {
       toast.error("iltimos kataklarni 5 tadan kam toldirmang !");
     }
+    setTimeout(() => {
+      setLoader(false)
+    }, 1500);
   };
-  
+
   return (
     <Wrapper onSubmit={(e) => createLogin(e)}>
       <div className="login">
@@ -50,7 +56,11 @@ const CreateLogin = () => {
             type="password"
             placeholder="confirmPassword"
           />
-          <button>Отправитъ</button>
+          {loader ?
+            <ClassicSpinner size={30} color="#686769" loading={loader} />
+            :
+            <button>Отправитъ</button>
+          }
         </FormDiv>
         <Link to="/login">
           <span>login</span>
@@ -82,6 +92,11 @@ const Wrapper = styled.div`
     text-align: center;
     box-shadow: 0 0 220px 2px rgba(255, 255, 255, 255);
   }
+  @media only screen and (max-width: 610px) {
+  .login{
+    width: 100%;
+  }
+}
 `;
 
 const FormDiv = styled.form`

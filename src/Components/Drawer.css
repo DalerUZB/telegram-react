@@ -16,6 +16,7 @@
 }
 
 .Drawer .logOutDiv {
+  text-align: center;
   width: 100%;
   transition: 0.3s all;
 }

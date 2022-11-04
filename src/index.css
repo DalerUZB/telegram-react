@@ -7,11 +7,11 @@
 }
 .container .wrapper {
   width: 100%;
-  height: calc(100vh - 41.4px);
+  height: 94.2vh;
 }
 .wrapper header {
   width: 100%;
-  height: 32px;
+  /* height: 32px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -199,6 +199,8 @@ header .images img {
 .right-div {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .right-div .right-header {
   display: flex;
@@ -208,7 +210,10 @@ header .images img {
   max-width: 100%;
   background: rgba(58, 58, 58, 0.3);
   border-radius: 7px 0px 0px 0px;
-  padding: 0 4rem 0 0.5rem;
+  /* padding: 0 4rem 0 0.5rem; */
+}
+.right-header {
+  max-width: 100%;
 }
 .info-chat {
   display: flex;
@@ -284,8 +289,8 @@ header .images img {
   display: flex;
   flex-direction: column-reverse;
   overflow: auto;
-  min-height: calc(90% - 10%);
-  max-height: calc(93% - 74.7px);
+  min-height: 82%;
+  max-height: 82%;
 }
 .for-reverse {
   display: flex;
@@ -304,64 +309,7 @@ header .images img {
   background: rgba(255, 255, 255, 0.5442);
   border-radius: 9999px;
 }
-.wrapper-info-component {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 0 0 8px;
-  padding: 0 3rem;
-}
 
-.personName {
-  width: 10px;
-  height: 10px;
-  background-color: red;
-}
-.wrapper-info-component .person img {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-}
-.person {
-  margin-right: 7px;
-}
-.wrapper-div-messages {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 0px 0px 0px 10px;
-  gap: 8px;
-  max-width: 100%;
-  min-height: 39px;
-  max-height: auto;
-  background: rgba(110, 109, 109, 0.982);
-  border-radius: 4px 14px 14px 14px;
-}
-.wrapper-div-messages span:nth-child(1) {
-  /* max-width: 100%;
-  height: 19px; */
-  font-family: "Segoe UI Variable Static Text";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #ffffff;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-}
-
-.wrapper-div-messages span:nth-child(2) {
-  /* width: 10%;
-  height: 14px; */
-  font-family: "Segoe UI Variable Static Small";
-  font-style: normal;
-  font-weight: 350;
-  font-size: 12px;
-  line-height: 14px;
-  text-align: right;
-  color: #a1aab3;
-}
 .send-message-div {
   background: rgba(255, 255, 255, 0.0512);
   border-radius: 8px;
@@ -375,10 +323,10 @@ header .images img {
   justify-content: space-between;
 }
 .sendFileToMessage {
-  width: 100%;
+  width: 20rem;
   display: flex;
   align-items: center;
-  height: 100%;
+  /* height: 100%; */
   padding-left: 15px;
   gap: 22px;
 }
@@ -408,7 +356,6 @@ header .images img {
   align-items: center;
   padding-right: 18px;
   gap: 26px;
-
 }
 .sendEmojiVoice img:nth-child(1) {
   cursor: pointer;
@@ -416,4 +363,15 @@ header .images img {
 
 .sendEmojiVoice img:nth-child(2) {
   cursor: pointer;
+}
+.forResponsive {
+  display: none;
+}
+@media only screen and (max-width: 674px) {
+  .left-div {
+    display: none;
+  }
+  .forResponsive {
+    display: block;
+  }
 }

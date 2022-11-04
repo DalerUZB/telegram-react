@@ -57,7 +57,7 @@ const Login = () => {
           )}
         </FormDiv>
         <Link to="/create-login">
-          <button>Create login</button>
+          <span>Create login</span>
         </Link>
       </div>
       <Image width={1550} height={900} />
@@ -86,6 +86,12 @@ const Wrapper = styled.div`
     text-align: center;
     box-shadow: 0 0 220px 2px rgba(255, 255, 255, 255);
   }
+  
+@media only screen and (max-width: 610px) {
+  .login{
+    width: 100%;
+  }
+}
 `;
 
 const FormDiv = styled.form`

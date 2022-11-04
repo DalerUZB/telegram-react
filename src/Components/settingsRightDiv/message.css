@@ -1,0 +1,24 @@
+.wrapper-info-component {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    min-height: auto;
+    max-height: 400px;
+    min-height: auto;
+    border: 1px solid black;
+}
+.person {
+    width: 24px;
+}
+.person img {
+    width: 100%;
+}
+.wrapper-div-messages .messageSpan {
+    width: 100%;
+}
+.wrapper-div-messages {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}

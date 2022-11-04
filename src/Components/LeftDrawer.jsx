@@ -12,6 +12,7 @@ import { fetchDataMessages } from "../store/action";
 const LeftDrawer = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const username = localStorage.getItem('username')
   const imageBurgerFunc = () => {
     const Drawer = document.querySelector(".Drawer");
     Drawer.classList.add("block");
@@ -33,6 +34,7 @@ const LeftDrawer = () => {
   return (
     <>
       <div className="left-div">
+        <h1 className="forResponsive">forResponsive</h1>
         <div className="left-header-div">
           <div className="image-burger" onClick={(e) => imageBurgerFunc(e)}>
             <img src={ImageBurger} alt="imageburger" />
@@ -47,6 +49,7 @@ const LeftDrawer = () => {
               />
             </div>
             <div className="logOutDiv">
+              <h1>{username}</h1>
               <button onClick={() => logOut()}>Log Out</button>
             </div>
           </div>

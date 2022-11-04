@@ -1,3 +1,4 @@
+
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import {
@@ -28,40 +29,24 @@ export const appSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchDataMessages.fulfilled, (state, action) => {
+
       state.messages = action.payload;
     });
 
     builder.addCase(login.fulfilled, (state, action) => {
-      if (
-        action.payload === "Foydalanuvchi topilmadi!" ||
-        action.payload === "Parol xato!" ||
-        action.payload === "Parol xato!" ||
-        localStorage.getItem("token") === undefined ||
-        localStorage.getItem("username") === undefined
-      ) {
-        toast.error(action.payload);
+      if (!action.payload.token) {
+        toast.error(action.payload)
       } else {
-        state.auth = true;
-        localStorage.setItem("token", action.payload.token);
-        localStorage.setItem("username", action.payload.username);
+        localStorage.setItem('token', action.payload.token)
+        localStorage.setItem('username', action.payload.username)
+        state.auth = true
       }
     });
 
     builder.addCase(fetchSendMessageAction.fulfilled, (state, action) => {
       toast.success(action.payload.message);
     });
-    builder.addCase(fetchSignup.fulfilled, (state, action) => {
-      if (
-        action.payload === "Ushbu ism band!" ||
-        action.payload === "Parol mos kelmadi!" ||
-        action.payload ===
-          "Parol yoki login kelmadi! Payloadni tekshiring! Iltimos!"
-      ) {
-        toast.error(action.payload);
-      } else {
-        toast.success(action.payload);
-      }
-    });
+    builder.addCase(fetchSignup.fulfilled, (state, action) => { });
   },
 });
 
