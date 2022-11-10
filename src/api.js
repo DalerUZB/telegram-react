@@ -45,5 +45,16 @@ export default class Api {
       console.log(error);
     }
   }
+  async deleteMessage(id) {
+    try {
+      axios.delete(`/messages/${id}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 export const api = new Api();

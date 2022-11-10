@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import {
   fetchDataMessages,
+  fetchDelete,
   fetchSendMessageAction,
   fetchSignup,
   login,
@@ -46,7 +47,8 @@ export const appSlice = createSlice({
     builder.addCase(fetchSendMessageAction.fulfilled, (state, action) => {
       toast.success(action.payload.message);
     });
-    builder.addCase(fetchSignup.fulfilled, (state, action) => { });
+    builder.addCase(fetchSignup.fulfilled, (state, action) => { })
+    builder.addCase(fetchDelete.fulfilled, (state, action) => { })
   },
 });
 

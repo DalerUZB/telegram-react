@@ -1,24 +1,76 @@
 .wrapper-info-component {
     display: flex;
     align-items: center;
-    max-width: 300px;
-    min-height: auto;
-    max-height: 400px;
-    min-height: auto;
-    border: 1px solid black;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
 }
 .person {
-    width: 24px;
+    position: absolute;
+    top: -6px;
+    left: -10px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
 }
 .person img {
     width: 100%;
+    border-radius: 50%;
 }
 .wrapper-div-messages .messageSpan {
     width: 100%;
+    word-break: break-all;
 }
 .wrapper-div-messages {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
+    background: rgba(255, 255, 255, 255);
+    border-radius: 4px 14px 14px 14px;
+    margin: 34px 0;
+    padding: 20px 10px;
+    gap: 12px;
+    position: relative;
+}
+.forEditRemove {
+    width: 40px;
+    height: 18px;
+    position: absolute;
+    align-items: center;
+    top: 20px;
+    right: 0;
+    transform: rotate(450deg);
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 2px;
+}
+.forEditRemove span {
+    width: 20%;
+    height: 10px;
+    border: 1px solid white;
+}
+.forEditRemove:hover {
+    border: 1px solid rgb(0, 0, 0);
+}
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: 0.3s all;
+}
+
+.modal button {
+    padding: 8px 16px;
+    border: none;
+    border: 1px solid rgba(255, 255, 255, 255);
+    box-shadow: 0 0 2px 6px rgb(106, 111, 106);
+    border-radius: 4px;
+}
+
+.modal button:nth-child(1):hover {
+    box-shadow: 0 0 2px 6px rgb(246, 3, 3);
+}
+.modal button:nth-child(2):hover {
+    box-shadow: 0 0 2px 6px rgb(9, 194, 9);
 }

@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import Image from "react-random-image";
 import React, { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { Link, } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { login } from "../store/action";
 import { toast } from "react-toastify";
 import { ClassicSpinner } from "react-spinners-kit";
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const username = useRef();
   const password = useRef();

@@ -11,7 +11,6 @@
 }
 .wrapper header {
   width: 100%;
-  /* height: 32px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -131,6 +130,9 @@ header .images img {
   justify-content: space-between;
   cursor: pointer;
 }
+.div-component .image-info-div .image-div-radius .image-person {
+  object-fit: contain;
+}
 .div-component:active {
   background-color: #ffffff;
   opacity: 0.7;
@@ -141,6 +143,7 @@ header .images img {
   justify-content: center;
   position: relative;
 }
+
 .parent-div-description {
   display: flex;
   flex-direction: column;
@@ -210,7 +213,6 @@ header .images img {
   max-width: 100%;
   background: rgba(58, 58, 58, 0.3);
   border-radius: 7px 0px 0px 0px;
-  /* padding: 0 4rem 0 0.5rem; */
 }
 .right-header {
   max-width: 100%;
@@ -285,6 +287,9 @@ header .images img {
 .circle-3 img {
   width: 15%;
 }
+.wrapper-circle .circle-3 img:nth-child(2) {
+  display: none;
+}
 .div-wrapper-components {
   display: flex;
   flex-direction: column-reverse;
@@ -301,12 +306,12 @@ header .images img {
   border: 1px solid black;
   width: 10px;
   border-radius: 10px;
-  background: #202020;
+  background-color: white;
 }
 .div-wrapper-components::-webkit-scrollbar-thumb {
-  width: 2px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.5442);
+  width: 4px;
+  height: 40px;
+  color: #fff;
   border-radius: 9999px;
 }
 
@@ -314,7 +319,7 @@ header .images img {
   background: rgba(255, 255, 255, 0.0512);
   border-radius: 8px;
   height: 50px;
-  max-width: 91%;
+  width: 90%;
   border-radius: 8px;
   margin: 0 auto;
   background: #4e4e4e;
@@ -326,7 +331,6 @@ header .images img {
   width: 20rem;
   display: flex;
   align-items: center;
-  /* height: 100%; */
   padding-left: 15px;
   gap: 22px;
 }
@@ -367,11 +371,34 @@ header .images img {
 .forResponsive {
   display: none;
 }
+
 @media only screen and (max-width: 674px) {
+  .wrapper-two-div {
+    position: relative;
+  }
   .left-div {
-    display: none;
+    position: absolute;
+    left: -100%;
+    z-index: 1;
+    transition: 0.3s all;
   }
   .forResponsive {
     display: block;
+  }
+  .circle-1,
+  .circle-2 {
+    display: none;
+  }
+  .circle-3 img:nth-child(1) {
+    display: none;
+  }
+  .wrapper-circle .circle-3 img:nth-child(2) {
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+  }
+  .right-div {
+    width: 90%;
+    margin-left: auto;
   }
 }
